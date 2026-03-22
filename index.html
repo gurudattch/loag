@@ -22,13 +22,23 @@
       border-radius: 16px;
       padding: 30px;
       width: 90%;
-      max-width: 400px;
+      max-width: 420px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.4);
       text-align: center;
     }
 
     h2 {
-      margin-bottom: 20px;
+      margin-bottom: 15px;
+    }
+
+    .steps {
+      text-align: left;
+      font-size: 13px;
+      background: rgba(255,255,255,0.05);
+      padding: 12px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      line-height: 1.6;
     }
 
     input {
@@ -60,11 +70,11 @@
       margin-top: 20px;
       font-weight: bold;
       color: #22c55e;
+      word-wrap: break-word;
     }
 
-    /* Map Card */
     .map-card {
-      margin-top: 25px;
+      margin-top: 20px;
       border-radius: 12px;
       overflow: hidden;
       background: #111827;
@@ -103,6 +113,16 @@
 <body>
   <div class="container">
     <h2>Flag Checker</h2>
+
+    <!-- Steps -->
+    <div class="steps">
+      <strong>Steps to Claim Flag:</strong><br>
+      1. Click the map card below<br>
+      2. Add a review on the page<br>
+      3. Copy the greeting message shown after review<br>
+      4. Paste it in the input above<br>
+      5. Submit to claim your flag 🚩
+    </div>
 
     <input type="text" id="msg" placeholder="Paste message here">
     <button onclick="checkFlag()">Submit</button>
