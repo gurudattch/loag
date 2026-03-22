@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flag Checker</title>
+</head>
+<body>
+  <h2>Enter Message</h2>
+  <input type="text" id="msg" placeholder="Paste message here">
+  <button onclick="checkFlag()">Submit</button>
+
+  <p id="result"></p>
+
+  <script>
+    async function checkFlag() {
+      const message = document.getElementById("msg").value;
+
+      const res = await fetch("/api/check", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ message })
+      });
+
+      const data = await res.json();
+      document.getElementById("result").innerText = data.flag;
+    }
+  </script>
+</body>
+</html>
