@@ -2,13 +2,104 @@
 <html>
 <head>
   <title>Flag Checker</title>
-</head>
-<body>
-  <h2>Enter Message</h2>
-  <input type="text" id="msg" placeholder="Paste message here">
-  <button onclick="checkFlag()">Submit</button>
 
-  <p id="result"></p>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #f1f5f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 30px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      margin-bottom: 15px;
+      font-size: 14px;
+      background: #1e293b;
+      color: #fff;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      background: #38bdf8;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #0ea5e9;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #22c55e;
+      word-wrap: break-word;
+    }
+
+    .review {
+      margin-top: 20px;
+      font-size: 13px;
+    }
+
+    .review a {
+      color: #facc15;
+      text-decoration: none;
+    }
+
+    .review a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Flag Checker</h2>
+
+    <input type="text" id="msg" placeholder="Paste message here">
+    <button onclick="checkFlag()">Submit</button>
+
+    <p id="result"></p>
+
+    <div class="review">
+      ⭐ Enjoying this challenge?  
+      <br>
+      <a href="https://maps.app.goo.gl/PfW1mYGtQ7fSjYCH7" target="_blank">
+        Leave a review here
+      </a>
+    </div>
+  </div>
 
   <script>
     async function checkFlag() {
