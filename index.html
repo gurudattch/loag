@@ -4,183 +4,216 @@
   <title>Flag Checker</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: #f1f5f9;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top, #1e293b, #020617);
+      color: #e2e8f0;
       display: flex;
       justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
     }
 
-    .container {
-      margin: 40px 0;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(12px);
-      border-radius: 16px;
-      padding: 25px;
-      width: 90%;
-      max-width: 420px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-      text-align: center;
+    .app {
+      width: 95%;
+      max-width: 900px;
+      height: 90vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
     }
 
-    h2 {
-      margin-bottom: 10px;
+    .card {
+      background: rgba(255,255,255,0.04);
+      border-radius: 18px;
+      padding: 20px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    h2, h3 {
+      margin: 0 0 10px;
     }
 
     .steps {
-      text-align: left;
       font-size: 13px;
-      background: rgba(255,255,255,0.05);
-      padding: 12px;
-      border-radius: 10px;
-      margin-bottom: 15px;
       line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    .input-box {
+      margin-top: 15px;
     }
 
     input {
       width: 100%;
       padding: 12px;
-      border-radius: 8px;
+      border-radius: 10px;
       border: none;
-      margin-bottom: 12px;
-      background: #1e293b;
+      background: #020617;
       color: #fff;
+      margin-bottom: 10px;
     }
 
     button {
       width: 100%;
       padding: 12px;
-      border-radius: 8px;
+      border-radius: 10px;
       border: none;
-      background: #38bdf8;
-      color: #000;
+      background: linear-gradient(90deg, #38bdf8, #6366f1);
+      color: white;
       font-weight: bold;
       cursor: pointer;
-      transition: 0.3s;
+      transition: 0.25s;
     }
 
     button:hover {
-      background: #0ea5e9;
+      transform: scale(1.03);
+      opacity: 0.9;
     }
 
     #result {
-      margin-top: 15px;
+      margin-top: 10px;
       font-weight: bold;
       color: #22c55e;
-      word-wrap: break-word;
+      min-height: 20px;
     }
 
     /* Map Card */
     .map-card {
-      margin-top: 20px;
-      border-radius: 12px;
+      border-radius: 14px;
       overflow: hidden;
-      background: #111827;
       cursor: pointer;
       transition: 0.3s;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+      margin-top: 10px;
     }
 
     .map-card:hover {
-      transform: scale(1.02);
+      transform: scale(1.03);
     }
 
     .map-image {
-      width: 100%;
-      height: 150px;
+      height: 140px;
       background: url('review.png') center/cover;
     }
 
     .map-content {
-      padding: 12px;
-      text-align: left;
+      padding: 10px;
+      background: #020617;
     }
 
     .map-title {
-      font-size: 14px;
       font-weight: bold;
+      font-size: 14px;
     }
 
     .map-sub {
       font-size: 12px;
-      color: #9ca3af;
+      opacity: 0.7;
     }
 
-    /* About Section */
+    /* About */
     .about {
-      margin-top: 25px;
-      text-align: left;
       font-size: 13px;
-      background: rgba(255,255,255,0.05);
-      padding: 15px;
-      border-radius: 12px;
       line-height: 1.6;
-    }
-
-    .about h3 {
-      text-align: center;
-      margin-bottom: 10px;
+      overflow-y: auto;
     }
 
     .about p {
+      opacity: 0.85;
       margin-bottom: 10px;
-      color: #cbd5f5;
+    }
+
+    /* Scroll fix */
+    .about::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .about::-webkit-scrollbar-thumb {
+      background: #475569;
+      border-radius: 10px;
+    }
+
+    /* Mobile */
+    @media(max-width: 768px) {
+      .app {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+
+      body {
+        height: auto;
+        padding: 20px 0;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <h2>Flag Checker</h2>
 
-    <!-- Steps -->
-    <div class="steps">
-      <strong>Steps to Claim Flag:</strong><br>
-      1. Click the map card below<br>
-      2. Add a review on the page<br>
-      3. Copy the greeting message shown after review<br>
-      4. Paste it in the input above<br>
-      5. Submit to claim your flag 🚩
-    </div>
+  <div class="app">
 
-    <!-- Input -->
-    <input type="text" id="msg" placeholder="Paste message here">
-    <button onclick="checkFlag()">Submit</button>
+    <!-- Left Panel -->
+    <div class="card">
+      <div>
+        <h2>🚩 Flag Checker</h2>
 
-    <p id="result"></p>
+        <div class="steps">
+          <strong>Steps:</strong><br>
+          1. Click the review card<br>
+          2. Add a review<br>
+          3. Copy greeting message<br>
+          4. Paste above<br>
+          5. Submit to claim flag
+        </div>
 
-    <!-- Map Card -->
-    <div class="map-card" onclick="openMap()">
-      <div class="map-image"></div>
-      <div class="map-content">
-        <div class="map-title">Leave a Review</div>
-        <div class="map-sub">Tap to open in Google Maps</div>
+        <div class="input-box">
+          <input type="text" id="msg" placeholder="Paste message here">
+          <button onclick="checkFlag()">Submit</button>
+          <div id="result"></div>
+        </div>
+      </div>
+
+      <div class="map-card" onclick="openMap()">
+        <div class="map-image"></div>
+        <div class="map-content">
+          <div class="map-title">Leave a Review</div>
+          <div class="map-sub">Open in Google Maps</div>
+        </div>
       </div>
     </div>
 
-    <!-- About Section -->
-    <div class="about">
+    <!-- Right Panel -->
+    <div class="card about">
       <h3>About Walkover</h3>
 
       <p>
-        Walkover is a product-based technology company based in Indore, India, focused on building SaaS and AI-driven tools that simplify business workflows and communication systems.
+        Walkover is a product-based tech company from Indore, India, building SaaS and AI tools that simplify business workflows.
       </p>
 
       <p>
-        Founded in 2010, the company is widely known for its flagship platform <strong>MSG91</strong>, which provides enterprise-grade communication APIs including SMS, Email, WhatsApp, and Voice services used globally.
+        Its flagship product <strong>MSG91</strong> enables global communication via SMS, Email, WhatsApp, and Voice APIs.
       </p>
 
       <p>
-        Walkover also develops products like <strong>viaSocket</strong>, a workflow automation platform, and <strong>Giddh</strong>, a cloud-based accounting solution designed for modern financial management.
+        Other products include <strong>viaSocket</strong> for automation and <strong>Giddh</strong> for cloud accounting.
       </p>
 
       <p>
-        The company emphasizes innovation through a strong engineering culture, focusing on automation, scalability, and user-centric design to help businesses eliminate repetitive tasks and improve efficiency.
+        The company focuses on automation, innovation, and scalable solutions to eliminate repetitive tasks in businesses.
+      </p>
+
+      <p>
+        Known for its flexible and engineering-driven culture, Walkover builds tools used by companies worldwide.
       </p>
     </div>
 
@@ -206,5 +239,6 @@
       window.open("https://maps.app.goo.gl/PfW1mYGtQ7fSjYCH7", "_blank");
     }
   </script>
+
 </body>
 </html>
