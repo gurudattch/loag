@@ -11,75 +11,84 @@
       font-family: 'Segoe UI', sans-serif;
       background: #020617;
       color: #e2e8f0;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 20px 0;
     }
 
     .app {
-      width: 95%;
-      max-width: 900px;
+      width: 100%;
+      max-width: 1400px; /* 🔥 increased */
+      margin: auto;
+      padding: 20px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      grid-template-columns: 1.2fr 1fr; /* better ratio */
+      gap: 16px;
     }
 
     .card {
       background: rgba(255,255,255,0.04);
-      border-radius: 12px;
-      padding: 14px;
-      backdrop-filter: blur(10px);
+      border-radius: 14px;
+      padding: 18px;
+      backdrop-filter: blur(12px);
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
+      min-height: 420px; /* balanced height */
     }
 
-    h2, h3 {
+    h2 {
       margin: 0;
-      font-size: 16px;
+      font-size: 20px;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 18px;
     }
 
     .steps {
-      font-size: 12px;
-      line-height: 1.4;
+      font-size: 13px;
+      line-height: 1.5;
       opacity: 0.85;
     }
 
     input {
       width: 100%;
-      padding: 10px;
-      border-radius: 8px;
+      padding: 12px;
+      border-radius: 10px;
       border: none;
       background: #020617;
       color: #fff;
-      font-size: 13px;
+      font-size: 14px;
     }
 
     button {
       width: 100%;
-      padding: 10px;
-      border-radius: 8px;
+      padding: 12px;
+      border-radius: 10px;
       border: none;
-      background: #38bdf8;
-      color: black;
+      background: linear-gradient(90deg, #38bdf8, #6366f1);
+      color: white;
       font-weight: bold;
       cursor: pointer;
-      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    button:hover {
+      opacity: 0.9;
     }
 
     #result {
-      font-size: 13px;
+      font-size: 14px;
       color: #22c55e;
-      min-height: 16px;
+      min-height: 20px;
     }
 
     /* Map Card */
     .map-card {
-      border-radius: 10px;
+      border-radius: 12px;
       overflow: hidden;
       cursor: pointer;
       transition: 0.2s;
+      margin-top: auto; /* pushes it nicely */
     }
 
     .map-card:hover {
@@ -87,34 +96,50 @@
     }
 
     .map-image {
-      height: 110px;
+      height: 160px; /* bigger */
       background: url('review.png') center/cover;
     }
 
     .map-content {
-      padding: 8px;
+      padding: 10px;
       background: #020617;
-      font-size: 12px;
+      font-size: 13px;
     }
 
     /* About */
     .about {
-      font-size: 12px;
-      line-height: 1.4;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
+      font-size: 13px;
+      line-height: 1.6;
     }
 
     .about p {
-      margin: 0;
-      opacity: 0.8;
+      margin: 6px 0;
+      opacity: 0.85;
     }
 
-    /* Mobile */
-    @media(max-width: 768px) {
+    /* 🔥 Tablet */
+    @media (max-width: 1024px) {
       .app {
         grid-template-columns: 1fr;
+        max-width: 700px;
+      }
+
+      .card {
+        min-height: auto;
+      }
+    }
+
+    /* 🔥 Mobile */
+    @media (max-width: 600px) {
+      .app {
+        padding: 12px;
+      }
+
+      h2 { font-size: 18px; }
+      h3 { font-size: 16px; }
+
+      .map-image {
+        height: 130px;
       }
     }
   </style>
@@ -124,9 +149,8 @@
 
   <div class="app">
 
-    <!-- Left -->
+    <!-- LEFT -->
     <div class="card">
-
       <h2>🚩 Flag Checker</h2>
 
       <div class="steps">
@@ -148,10 +172,9 @@
           Leave a Review → Google Maps
         </div>
       </div>
-
     </div>
 
-    <!-- Right -->
+    <!-- RIGHT -->
     <div class="card about">
       <h3>About Walkover</h3>
 
