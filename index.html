@@ -4,143 +4,108 @@
   <title>Flag Checker</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: radial-gradient(circle at top, #1e293b, #020617);
+      background: #020617;
       color: #e2e8f0;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      overflow: hidden;
     }
 
     .app {
       width: 95%;
       max-width: 900px;
-      height: 90vh;
+      height: 88vh;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 12px;
     }
 
     .card {
       background: rgba(255,255,255,0.04);
-      border-radius: 18px;
-      padding: 20px;
-      backdrop-filter: blur(14px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+      border-radius: 12px;
+      padding: 14px;
+      backdrop-filter: blur(10px);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
     h2, h3 {
-      margin: 0 0 10px;
+      margin: 0 0 6px;
+      font-size: 16px;
     }
 
     .steps {
-      font-size: 13px;
-      line-height: 1.6;
-      opacity: 0.9;
-    }
-
-    .input-box {
-      margin-top: 15px;
+      font-size: 12px;
+      line-height: 1.4;
+      opacity: 0.85;
+      margin-bottom: 8px;
     }
 
     input {
       width: 100%;
-      padding: 12px;
-      border-radius: 10px;
+      padding: 10px;
+      border-radius: 8px;
       border: none;
       background: #020617;
       color: #fff;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
+      font-size: 13px;
     }
 
     button {
       width: 100%;
-      padding: 12px;
-      border-radius: 10px;
+      padding: 10px;
+      border-radius: 8px;
       border: none;
-      background: linear-gradient(90deg, #38bdf8, #6366f1);
-      color: white;
+      background: #38bdf8;
+      color: black;
       font-weight: bold;
       cursor: pointer;
-      transition: 0.25s;
-    }
-
-    button:hover {
-      transform: scale(1.03);
-      opacity: 0.9;
     }
 
     #result {
-      margin-top: 10px;
-      font-weight: bold;
+      margin-top: 6px;
+      font-size: 13px;
       color: #22c55e;
-      min-height: 20px;
+      min-height: 16px;
     }
 
     /* Map Card */
     .map-card {
-      border-radius: 14px;
+      border-radius: 10px;
       overflow: hidden;
       cursor: pointer;
-      transition: 0.3s;
-      margin-top: 10px;
-    }
-
-    .map-card:hover {
-      transform: scale(1.03);
+      margin-top: 8px;
     }
 
     .map-image {
-      height: 140px;
+      height: 110px;
       background: url('review.png') center/cover;
     }
 
     .map-content {
-      padding: 10px;
+      padding: 8px;
       background: #020617;
-    }
-
-    .map-title {
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    .map-sub {
       font-size: 12px;
-      opacity: 0.7;
     }
 
     /* About */
     .about {
-      font-size: 13px;
-      line-height: 1.6;
-      overflow-y: auto;
+      font-size: 12px;
+      line-height: 1.4;
+      overflow: hidden;
     }
 
     .about p {
-      opacity: 0.85;
-      margin-bottom: 10px;
-    }
-
-    /* Scroll fix */
-    .about::-webkit-scrollbar {
-      width: 4px;
-    }
-
-    .about::-webkit-scrollbar-thumb {
-      background: #475569;
-      border-radius: 10px;
+      margin: 4px 0;
+      opacity: 0.8;
     }
 
     /* Mobile */
@@ -152,7 +117,7 @@
 
       body {
         height: auto;
-        padding: 20px 0;
+        padding: 10px 0;
       }
     }
   </style>
@@ -162,59 +127,42 @@
 
   <div class="app">
 
-    <!-- Left Panel -->
+    <!-- Left -->
     <div class="card">
       <div>
         <h2>🚩 Flag Checker</h2>
 
         <div class="steps">
           <strong>Steps:</strong><br>
-          1. Click the review card<br>
-          2. Add a review<br>
-          3. Copy greeting message<br>
+          1. Click review<br>
+          2. Add review<br>
+          3. Copy message<br>
           4. Paste above<br>
-          5. Submit to claim flag
+          5. Submit 🚀
         </div>
 
-        <div class="input-box">
-          <input type="text" id="msg" placeholder="Paste message here">
-          <button onclick="checkFlag()">Submit</button>
-          <div id="result"></div>
-        </div>
+        <input type="text" id="msg" placeholder="Paste message here">
+        <button onclick="checkFlag()">Submit</button>
+        <div id="result"></div>
       </div>
 
       <div class="map-card" onclick="openMap()">
         <div class="map-image"></div>
         <div class="map-content">
-          <div class="map-title">Leave a Review</div>
-          <div class="map-sub">Open in Google Maps</div>
+          Leave a Review → Google Maps
         </div>
       </div>
     </div>
 
-    <!-- Right Panel -->
+    <!-- Right -->
     <div class="card about">
       <h3>About Walkover</h3>
 
-      <p>
-        Walkover is a product-based tech company from Indore, India, building SaaS and AI tools that simplify business workflows.
-      </p>
-
-      <p>
-        Its flagship product <strong>MSG91</strong> enables global communication via SMS, Email, WhatsApp, and Voice APIs.
-      </p>
-
-      <p>
-        Other products include <strong>viaSocket</strong> for automation and <strong>Giddh</strong> for cloud accounting.
-      </p>
-
-      <p>
-        The company focuses on automation, innovation, and scalable solutions to eliminate repetitive tasks in businesses.
-      </p>
-
-      <p>
-        Known for its flexible and engineering-driven culture, Walkover builds tools used by companies worldwide.
-      </p>
+      <p>Walkover is a tech company from Indore building SaaS & AI tools.</p>
+      <p><strong>MSG91</strong> enables SMS, Email, WhatsApp APIs globally.</p>
+      <p><strong>viaSocket</strong> automates workflows.</p>
+      <p><strong>Giddh</strong> simplifies cloud accounting.</p>
+      <p>Focus: automation, scalability, real-world business tools.</p>
     </div>
 
   </div>
