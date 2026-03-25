@@ -12,15 +12,16 @@
       color: #f1f5f9;
       display: flex;
       justify-content: center;
-      align-items: center;
-      height: 100vh;
+      align-items: flex-start;
+      min-height: 100vh;
     }
 
     .container {
+      margin: 40px 0;
       background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
       border-radius: 16px;
-      padding: 30px;
+      padding: 25px;
       width: 90%;
       max-width: 420px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.4);
@@ -28,7 +29,7 @@
     }
 
     h2 {
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
 
     .steps {
@@ -46,7 +47,7 @@
       padding: 12px;
       border-radius: 8px;
       border: none;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
       background: #1e293b;
       color: #fff;
     }
@@ -60,6 +61,7 @@
       color: #000;
       font-weight: bold;
       cursor: pointer;
+      transition: 0.3s;
     }
 
     button:hover {
@@ -67,18 +69,18 @@
     }
 
     #result {
-      margin-top: 20px;
+      margin-top: 15px;
       font-weight: bold;
       color: #22c55e;
       word-wrap: break-word;
     }
 
+    /* Map Card */
     .map-card {
       margin-top: 20px;
       border-radius: 12px;
       overflow: hidden;
       background: #111827;
-      text-align: left;
       cursor: pointer;
       transition: 0.3s;
       box-shadow: 0 5px 15px rgba(0,0,0,0.5);
@@ -96,6 +98,7 @@
 
     .map-content {
       padding: 12px;
+      text-align: left;
     }
 
     .map-title {
@@ -106,6 +109,27 @@
     .map-sub {
       font-size: 12px;
       color: #9ca3af;
+    }
+
+    /* About Section */
+    .about {
+      margin-top: 25px;
+      text-align: left;
+      font-size: 13px;
+      background: rgba(255,255,255,0.05);
+      padding: 15px;
+      border-radius: 12px;
+      line-height: 1.6;
+    }
+
+    .about h3 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .about p {
+      margin-bottom: 10px;
+      color: #cbd5f5;
     }
   </style>
 </head>
@@ -124,6 +148,7 @@
       5. Submit to claim your flag 🚩
     </div>
 
+    <!-- Input -->
     <input type="text" id="msg" placeholder="Paste message here">
     <button onclick="checkFlag()">Submit</button>
 
@@ -137,6 +162,28 @@
         <div class="map-sub">Tap to open in Google Maps</div>
       </div>
     </div>
+
+    <!-- About Section -->
+    <div class="about">
+      <h3>About Walkover</h3>
+
+      <p>
+        Walkover is a product-based technology company based in Indore, India, focused on building SaaS and AI-driven tools that simplify business workflows and communication systems.
+      </p>
+
+      <p>
+        Founded in 2010, the company is widely known for its flagship platform <strong>MSG91</strong>, which provides enterprise-grade communication APIs including SMS, Email, WhatsApp, and Voice services used globally.
+      </p>
+
+      <p>
+        Walkover also develops products like <strong>viaSocket</strong>, a workflow automation platform, and <strong>Giddh</strong>, a cloud-based accounting solution designed for modern financial management.
+      </p>
+
+      <p>
+        The company emphasizes innovation through a strong engineering culture, focusing on automation, scalability, and user-centric design to help businesses eliminate repetitive tasks and improve efficiency.
+      </p>
+    </div>
+
   </div>
 
   <script>
