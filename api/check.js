@@ -7,7 +7,7 @@ export default function handler(req, res) {
 
   if (message.includes("You've earned points")) {
     return res.json({
-      flag: "FLAG{You've earned Points for helping Hackers!}"
+      flag: "FLAG{Congratulations now you are a Hacker! }"
     });
   }
 
